@@ -9,11 +9,11 @@
       <bpmn:incoming>Flow_1wyqh9i</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_16gzt2m" sourceRef="getEmailAndText" targetRef="Activity_1s1prfb" />
-    <bpmn:userTask id="getEmailAndText" name="Введите email получателя и текст письма" camunda:candidateUsers="demo">
+    <bpmn:userTask id="getEmailAndText" name="Ввод email получателя и текста письма" camunda:candidateUsers="demo">
       <bpmn:extensionElements>
         <camunda:formData>
-          <camunda:formField id="var1" label="var1" type="string" />
-          <camunda:formField id="var2" label="var2" type="string" />
+          <camunda:formField id="emailAdress" label="Введите email адрес получателя" type="string" />
+          <camunda:formField id="text" label="Введите текст письма" type="string" />
         </camunda:formData>
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1fp17al</bpmn:incoming>

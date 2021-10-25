@@ -25,11 +25,11 @@ import java.util.Properties;
 public class ProcessEmailSender implements JavaDelegate {
     @Override
     public void execute(DelegateExecution execution) throws Exception {
-        String toMail = execution.getVariable("var1").toString(); //получение почты получателя
-        String text = execution.getVariable("var2").toString(); //получение текста письма без темы
+        String toMail = execution.getVariable("emailAdress").toString(); //получение почты получателя
+        String text = execution.getVariable("text").toString(); //получение текста письма, без темы
 
         final String username = "a.martin.am567@gmail.com"; //почта и пароль отправителя
-        final String password = "---"; //
+        final String password = "93847BHJvd34fg7324JKHG"; //
 
         Properties prop = new Properties();
         prop.put("mail.smtp.host", "smtp.gmail.com");
@@ -47,22 +47,20 @@ public class ProcessEmailSender implements JavaDelegate {
         try {
 
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("a.martin.am567@gmail.com")); //
+            message.setFrom(new InternetAddress("a.martin.am567@gmail.com")); //почта отправителя
             message.setRecipients(
                     Message.RecipientType.TO,
-                    InternetAddress.parse(toMail) //
+                    InternetAddress.parse(toMail) //почта получателя
             );
             message.setSubject("Testing Gmail SSL"); //тема письма
             message.setText(text); // текст письма
 
             Transport.send(message); //отправка письма
 
-            System.out.println("Done"); //сообщение в консоль при успешной оправке
+            System.out.println("Done"); //сообщение в консоль при успешной отправке
 
         } catch (MessagingException e) {
             e.printStackTrace();
         }
-
-
     }
 }
