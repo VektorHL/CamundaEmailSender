@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 2,
+  "components": [
+    {
+      "label": "Email получателя",
+      "type": "textfield",
+      "id": "Field_1n9h481",
+      "key": "emailAdress1",
+      "description": "Введите e-mail адрес получателя",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Текст сообщения",
+      "type": "textfield",
+      "id": "Field_0rth99x",
+      "key": "text1",
+      "description": "Введите текст сообщения",
+      "validate": {
+        "required": true
+      }
+    }
+  ],
+  "type": "default",
+  "id": "From_getData",
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.16"
+}
