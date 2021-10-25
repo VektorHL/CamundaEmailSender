@@ -4,12 +4,12 @@
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:outgoing>SequenceFlow_1fp17al</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:sequenceFlow id="SequenceFlow_1fp17al" sourceRef="StartEvent_1" targetRef="say-hello" />
+    <bpmn:sequenceFlow id="SequenceFlow_1fp17al" sourceRef="StartEvent_1" targetRef="getEmailAndText" />
     <bpmn:endEvent id="EndEvent_0x6ir2l">
       <bpmn:incoming>Flow_1wyqh9i</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="SequenceFlow_16gzt2m" sourceRef="say-hello" targetRef="Activity_1s1prfb" />
-    <bpmn:userTask id="say-hello" name="Say hello to&#10;demo" camunda:candidateUsers="demo">
+    <bpmn:sequenceFlow id="SequenceFlow_16gzt2m" sourceRef="getEmailAndText" targetRef="Activity_1s1prfb" />
+    <bpmn:userTask id="getEmailAndText" name="Введите email получателя и текст письма" camunda:candidateUsers="demo">
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="var1" label="var1" type="string" />
@@ -20,7 +20,7 @@
       <bpmn:outgoing>SequenceFlow_16gzt2m</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_1wyqh9i" sourceRef="Activity_1s1prfb" targetRef="EndEvent_0x6ir2l" />
-    <bpmn:serviceTask id="Activity_1s1prfb" name="say" camunda:delegateExpression="${processEmailSender}">
+    <bpmn:serviceTask id="Activity_1s1prfb" name="Отправка письма" camunda:delegateExpression="${processEmailSender}">
       <bpmn:incoming>SequenceFlow_16gzt2m</bpmn:incoming>
       <bpmn:outgoing>Flow_1wyqh9i</bpmn:outgoing>
     </bpmn:serviceTask>
@@ -28,12 +28,12 @@
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="my-project-process">
       <bpmndi:BPMNEdge id="Flow_1wyqh9i_di" bpmnElement="Flow_1wyqh9i">
-        <di:waypoint x="600" y="117" />
-        <di:waypoint x="882" y="117" />
+        <di:waypoint x="580" y="117" />
+        <di:waypoint x="682" y="117" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_16gzt2m_di" bpmnElement="SequenceFlow_16gzt2m">
         <di:waypoint x="370" y="117" />
-        <di:waypoint x="500" y="117" />
+        <di:waypoint x="480" y="117" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1fp17al_di" bpmnElement="SequenceFlow_1fp17al">
         <di:waypoint x="215" y="117" />
@@ -42,14 +42,14 @@
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="179" y="99" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="EndEvent_0x6ir2l_di" bpmnElement="EndEvent_0x6ir2l">
-        <dc:Bounds x="882" y="99" width="36" height="36" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="UserTask_08mft2c_di" bpmnElement="say-hello">
+      <bpmndi:BPMNShape id="UserTask_08mft2c_di" bpmnElement="getEmailAndText">
         <dc:Bounds x="270" y="77" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1vmg3re_di" bpmnElement="Activity_1s1prfb">
-        <dc:Bounds x="500" y="77" width="100" height="80" />
+        <dc:Bounds x="480" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0x6ir2l_di" bpmnElement="EndEvent_0x6ir2l">
+        <dc:Bounds x="682" y="99" width="36" height="36" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
